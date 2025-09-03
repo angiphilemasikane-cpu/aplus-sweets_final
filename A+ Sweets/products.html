@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A+ Sweets - Products</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="lightbox.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <img src="logo.png" alt="A+ Sweets Logo" width="150" />
+    <h1>Our Product Collection</h1>
+    <h3>Explore Our Tasty Treats</h3>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact .html">Contact Us</a></li>
+      <li><a href="clientRegistrationForm.html">Register</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Sweet Collection</h2>
+    <section class="gallery">
+
+      <form id="productForm">
+
+        <div class="product" style="display: flex; align-items: flex-start; margin-bottom: 30px;">
+          <input type="checkbox" id="bigBoomBlue" name="product" value="Big Boom Blue" data-price="10" style="margin-right: 15px; margin-top: 50px;" />
+          <img src="images/Big Boom Blue.png" alt="Big Boom Blue Lollipop" style="width:150px; margin-right: 20px;" />
+          <div>
+            <label for="bigBoomBlue"><strong>Big Boom Blue Lollipop</strong></label>
+            <p>A juicy blueberry explosion with a chewy center.</p>
+            <ul>
+              <li>Flavor: Blueberry</li>
+              <li>Weight: 25g</li>
+              <li>Price: R10</li>
+            </ul>
+            Quantity:
+            <input type="number" name="quantity-Big Boom Blue" value="1" min="1" disabled />
+          </div>
+        </div>
+
+        <div class="product" style="display: flex; align-items: flex-start; margin-bottom: 30px;">
+          <input type="checkbox" id="bigBoomGolden" name="product" value="Big Boom Golden" data-price="10" style="margin-right: 15px; margin-top: 50px;" />
+          <img src="images/Big Boom Golden.png" alt="Big Boom Golden Lollipop" style="width:150px; margin-right: 20px;" />
+          <div>
+            <label for="bigBoomGolden"><strong>Big Boom Golden Lollipop</strong></label>
+            <p>Golden caramel flavor with a fizzy surprise.</p>
+            <ul>
+              <li>Flavor: Caramel</li>
+              <li>Weight: 25g</li>
+              <li>Price: R10</li>
+            </ul>
+            Quantity:
+            <input type="number" name="quantity-Big Boom Golden" value="1" min="1" disabled />
+          </div>
+        </div>
+
+        <div class="product" style="display: flex; align-items: flex-start; margin-bottom: 30px;">
+          <input type="checkbox" id="bigBoomLimon" name="product" value="Big Boom Limon" data-price="10" style="margin-right: 15px; margin-top: 50px;" />
+          <img src="images/Big Boom Limon.png" alt="Big Boom Limon Lollipop" style="width:150px; margin-right: 20px;" />
+          <div>
+            <label for="bigBoomLimon"><strong>Big Boom Limon Lollipop</strong></label>
+            <p>Sharp lemon zest with a tongue-tingling center.</p>
+            <ul>
+              <li>Flavor: Lemon</li>
+              <li>Weight: 25g</li>
+              <li>Price: R10</li>
+            </ul>
+            Quantity:
+            <input type="number" name="quantity-Big Boom Limon" value="1" min="1" disabled />
+          </div>
+        </div>
+
+        <div class="product" style="display: flex; align-items: flex-start; margin-bottom: 30px;">
+          <input type="checkbox" id="chappiesPurple" name="product" value="Chappies Purple" data-price="5" style="margin-right: 15px; margin-top: 50px;" />
+          <img src="images/Chappies Purple.png" alt="Chappies Purple Gum" style="width:150px; margin-right: 20px;" />
+          <div>
+            <label for="chappiesPurple"><strong>Chappies Purple Gum</strong></label>
+            <p>Bold grape flavor with fun facts inside every wrapper.</p>
+            <ul>
+              <li>Flavor: Grape</li>
+              <li>Pieces per pack: 10</li>
+              <li>Price: R5</li>
+            </ul>
+            Quantity:
+            <input type="number" name="quantity-Chappies Purple" value="1" min="1" disabled />
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 30px;">
+          <button type="submit">Add to Cart</button>
+        </div>
+
+      </form>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2021 A+ Sweets</p>
+    <p><strong>Business Name:</strong> A+ Sweets</p>
+    <p><strong>Owner:</strong> Luthando Vuyo Nxedlana</p>
+    <p><strong>Phone:</strong> 081 234 5678</p>
+    <p><strong>Email:</strong> <a href="mailto:info@aplussweets.co.za">info@aplussweets.co.za</a></p>
+    <p><strong>Location:</strong> Nellmapius, Pretoria</p>
+    <p><strong>Hours:</strong> Monday to Friday, 07:00 – 16:00</p>
+    <p><a href="https://www.facebook.com/aplussweets.hall/" class="external-link" target="_blank" rel="noopener noreferrer">Visit our Facebook page</a></p>
+  </footer>
+
+  <script>
+    // Enable/disable quantity input based on checkbox state
+    document.querySelectorAll('input[type="checkbox"][name="product"]').forEach(checkbox => {
+      checkbox.addEventListener('change', e => {
+        const productName = e.target.value;
+        const qtyInput = document.querySelector(`input[name="quantity-${productName}"]`);
+        qtyInput.disabled = !e.target.checked;
+        if (!e.target.checked) qtyInput.value = 1; // reset quantity when unchecked
+      });
+    });
+
+    // Function to get query parameter by name (to get client info if passed)
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param) || '';
+    }
+
+    // Handle form submission: gather products + client info, redirect with query string
+    document.getElementById('productForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const selectedProducts = [];
+      document.querySelectorAll('input[type="checkbox"][name="product"]:checked').forEach(cb => {
+        const name = cb.value;
+        const qty = document.querySelector(`input[name="quantity-${name}"]`).value;
+        const price = parseFloat(cb.getAttribute('data-price'));
+        selectedProducts.push({ name, quantity: qty, price });
+      });
+
+      if (selectedProducts.length === 0) {
+        alert("Please select at least one product.");
+        return;
+      }
+
+      // Get client info from query parameters (passed from registration form)
+      const firstName = getQueryParam('firstName') || 'Unknown';
+      const surname = getQueryParam('surname') || 'Unknown';
+      const deliveryAddress = getQueryParam('deliveryAddress') || 'Unknown';
+
+      // Build products part of the query string (multiple products)
+      // We'll use indexed keys: prodName0, prodPrice0, prodQty0, etc.
+      let productParams = '';
+      selectedProducts.forEach((p, index) => {
+        productParams += `&prodName${index}=${encodeURIComponent(p.name)}`;
+        productParams += `&prodPrice${index}=${encodeURIComponent(p.price)}`;
+        productParams += `&prodQty${index}=${encodeURIComponent(p.quantity)}`;
+      });
+
+      // Add total number of products selected to help parsing later
+      const productCount = selectedProducts.length;
+
+      // Build full URL and redirect
+      const url = `orderSubmit.html?firstName=${encodeURIComponent(firstName)}&surname=${encodeURIComponent(surname)}&deliveryAddress=${encodeURIComponent(deliveryAddress)}&productCount=${productCount}${productParams}`;
+
+      window.location.href = url;
+    });
+  </script>
+
+</body>
+
+</html>

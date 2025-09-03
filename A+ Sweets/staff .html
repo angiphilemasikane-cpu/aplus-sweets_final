@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A+ Sweets - Staff Directory</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      max-width: 900px;
+      margin: 20px auto;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 0 15px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0077cc;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      background-color: #0077cc;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f7f7f7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Staff Directory</h1>
+
+  <table id="staffTable">
+    <thead>
+      <tr>
+        <th>Staff Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Job Description</th>
+        <th>Work Phone</th>
+        <th>Work Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Staff rows will be inserted here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Staff data in JSON format
+    const staffData = {
+      "staff": [
+        {"staffNumber":1,"firstName":"Luthando","lastName":"Nxedlana","jobDescription":"Owner","workPhone":"+27 82 555 1234","workEmail":"luthando.nxedlana@aplusweets.co.za"},
+        {"staffNumber":2,"firstName":"Thandi","lastName":"Mkhize","jobDescription":"Sales Assistant","workPhone":"+27 82 555 2345","workEmail":"thandi.mkhize@aplusweets.co.za"},
+        {"staffNumber":3,"firstName":"Sipho","lastName":"Dlamini","jobDescription":"Stock Controller","workPhone":"+27 82 555 3456","workEmail":"sipho.dlamini@aplusweets.co.za"},
+        {"staffNumber":4,"firstName":"Nomsa","lastName":"Zulu","jobDescription":"Cashier","workPhone":"+27 82 555 4567","workEmail":"nomsa.zulu@aplusweets.co.za"},
+        {"staffNumber":5,"firstName":"Jason","lastName":"Mabena","jobDescription":"Delivery Driver","workPhone":"+27 82 555 5678","workEmail":"jason.mabena@aplusweets.co.za"},
+        {"staffNumber":6,"firstName":"Naledi","lastName":"Mthethwa","jobDescription":"Marketing Assistant","workPhone":"+27 82 555 6789","workEmail":"naledi.mthethwa@aplusweets.co.za"},
+        {"staffNumber":7,"firstName":"Vuyo","lastName":"Nkosi","jobDescription":"Customer Service Representative","workPhone":"+27 82 555 7890","workEmail":"vuyo.nkosi@aplusweets.co.za"},
+        {"staffNumber":8,"firstName":"Zanele","lastName":"Mbatha","jobDescription":"Warehouse Assistant","workPhone":"+27 82 555 8901","workEmail":"zanele.mbatha@aplusweets.co.za"},
+        {"staffNumber":9,"firstName":"Sibusiso","lastName":"Khumalo","jobDescription":"IT Support Technician","workPhone":"+27 82 555 9012","workEmail":"sibusiso.khumalo@aplusweets.co.za"},
+        {"staffNumber":10,"firstName":"Lerato","lastName":"Dube","jobDescription":"Finance Clerk","workPhone":"+27 82 555 0123","workEmail":"lerato.dube@aplusweets.co.za"}
+      ]
+    };
+
+    // Reference the tbody element
+    const tbody = document.querySelector("#staffTable tbody");
+
+    // Populate the table rows dynamically
+    staffData.staff.forEach(member => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${member.staffNumber}</td>
+        <td>${member.firstName}</td>
+        <td>${member.lastName}</td>
+        <td>${member.jobDescription}</td>
+        <td>${member.workPhone}</td>
+        <td><a href="mailto:${member.workEmail}">${member.workEmail}</a></td>
+      `;
+      tbody.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>

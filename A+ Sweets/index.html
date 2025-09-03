@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A+ Sweets - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <img src="logo.png" alt="A+ Sweets Logo" width="150" />
+    <h1>Welcome to A+ Sweets</h1>
+    <h3>Sweet Treats for School Learners</h3>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+	  <li><a href="clientRegistrationForm.html">Register</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Video Section -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="media/My Hero Image.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-text">
+      <h1>Bringing Sweet Smiles to School Days</h1>
+      <p>A+ Sweets – The Top of the Class in Flavor!</p>
+    </div>
+  </section>
+
+  <!-- Special Promotion -->
+  <p style="color: red; font-weight: bold; text-align: center; margin: 20px 0;">
+    Special Promotion: Get 10% off on all sweets this week only!
+  </p>
+
+  <!-- Main Content Section -->
+  <main>
+    <h2>About A+ Sweets</h2>
+
+    <div class="content-paragraphs">
+      <p>
+        A+ Sweets is a small business founded by Luthando Vuyo Nxedlana, a student entrepreneur with a passion for sweet treats and business. The company aims to provide affordable, high-quality sweets to learners in the Nellmapius area. Luthando noticed that many school tuckshops either do not sell sweets or charge prices that students cannot afford. This inspired him to create a solution tailored to the needs of his peers. His range includes Big Boom Blue, Golden, and Limon lollipops, Chappies gum in multiple flavors, and Tongue Sweet. All products are sourced directly from trusted brand suppliers, which ensures safety, quality, and cost savings.
+      </p>
+
+      <p>
+        The business operates as a sole proprietorship and currently serves four schools in the Nellmapius area. These include Nellmapius Primary School, Nellmapius Secondary School, Phenyo Christian College, and Vukuzenzele Primary School. A+ Sweets earns an average daily income between R150 and R250. Luthando manages a team of five assistants, each responsible for sales at a different school. He handles logistics, deliveries, and the business finances. After stock is sold, the team regroups, calculates earnings, pays assistants, sets aside funds for new stock, and reserves a portion for emergencies. This organized system helps keep the business running efficiently and growing steadily.
+      </p>
+
+      <p>
+        One of the biggest challenges faced by the business is that schools do not allow learners to sell products during school hours or on school property. To overcome this issue, a website was developed that allows customers to place preorders online. This system helps Luthando prepare orders in advance and arrange delivery outside the school grounds. Although payments are not processed on the website, it serves as an effective tool for managing and organizing customer requests. The introduction of this website adds a professional touch and shows how technology can help small businesses grow and operate within rules while meeting customer needs.
+      </p>
+    </div>
+  </main>
+
+  <!-- Last Visited Message -->
+  <section style="text-align: center; margin: 20px;">
+    <p id="lastVisited"></p>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2021 A+ Sweets</p>
+    <p><strong>Business Name:</strong> A+ Sweets</p>
+    <p><strong>Owner:</strong> Luthando Vuyo Nxedlana</p>
+    <p><strong>Phone:</strong> 081 234 5678</p>
+    <p><strong>Email:</strong> <a href="mailto:info@aplussweets.co.za">info@aplussweets.co.za</a></p>
+    <p><strong>Location:</strong> Nellmapius, Pretoria</p>
+    <p><strong>Hours:</strong> Monday to Friday, 07:00 – 16:00</p>
+  </footer>
+
+  <!-- JavaScript for Last Visited -->
+  <script>
+    const lastVisit = localStorage.getItem("lastVisitedDate");
+    const now = new Date();
+    const formatted = now.toLocaleString();
+    document.getElementById("lastVisited").textContent = lastVisit
+      ? `Your last visit was on: ${lastVisit}`
+      : "This is your first visit!";
+    localStorage.setItem("lastVisitedDate", formatted);
+  </script>
+
+</body>
+
+</html>

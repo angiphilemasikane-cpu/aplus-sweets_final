@@ -1,0 +1,112 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Registration - A+ Sweets</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #passwordError {
+      color: red;
+      font-weight: bold;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Register with A+ Sweets</h1>
+  </header>
+
+  <main>
+    <form id="registrationForm" action="orderSubmit.html" method="GET" onsubmit="return validateForm();">
+
+      <!-- Personal Info -->
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required />
+
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required />
+      </fieldset>
+
+      <!-- Delivery Address -->
+      <fieldset>
+        <legend>Delivery Address</legend>
+        <label for="address">Street Address:</label>
+        <input type="text" id="address" name="address" required />
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required />
+
+        <label for="postalCode">Postal Code:</label>
+        <input type="text" id="postalCode" name="postalCode" required />
+      </fieldset>
+
+      <!-- Credit Card Info -->
+      <fieldset>
+        <legend>Payment Details</legend>
+        <label for="cardName">Name on Card:</label>
+        <input type="text" id="cardName" name="cardName" required />
+
+        <label for="cardType">Card Type:</label>
+        <select id="cardType" name="cardType" required>
+          <option value="">Select...</option>
+          <option value="Visa">Visa</option>
+          <option value="MasterCard">MasterCard</option>
+          <option value="Amex">American Express</option>
+        </select>
+
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" pattern="\d{16}" maxlength="16" required />
+
+        <label for="expiryMonth">Expiry Month:</label>
+        <input type="text" id="expiryMonth" name="expiryMonth" placeholder="MM" pattern="\d{2}" maxlength="2" required />
+
+        <label for="expiryYear">Expiry Year:</label>
+        <input type="text" id="expiryYear" name="expiryYear" placeholder="YYYY" pattern="\d{4}" maxlength="4" required />
+      </fieldset>
+
+      <!-- Account Security -->
+      <fieldset>
+        <legend>Account Security</legend>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <span id="passwordError"></span>
+      </fieldset>
+
+      <input type="submit" value="Register and Proceed to Order" />
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 A+ Sweets</p>
+  </footer>
+
+  <script>
+    function validateForm() {
+      const password = document.getElementById('password').value;
+      const errorElement = document.getElementById('passwordError');
+      
+      // Regex for validation:
+      // - At least 8 characters
+      // - At least one uppercase letter
+      // - At least one digit
+      // - At least one special symbol !,@,#,$
+      const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$]).{8,}$/;
+
+      if (!regex.test(password)) {
+        errorElement.textContent =
+          "Password must be at least 8 characters long, include one uppercase letter, one digit, and one symbol (!, @, #, $).";
+        return false;
+      }
+
+      errorElement.textContent = "";
+      return true;
+    }
+  </script>
+
+</body>
+</html>
